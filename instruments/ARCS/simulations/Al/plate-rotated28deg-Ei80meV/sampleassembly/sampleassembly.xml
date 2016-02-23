@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE SampleAssembly>
+
+<SampleAssembly name="Al"
+   max_multiplescattering_loops_among_scatterers="1"
+   max_multiplescattering_loops_interactM_path1="4"
+   min_neutron_probability="0.1"
+ >
+  
+  <PowderSample name="Al" type="sample">
+    <Shape>
+      <block width="5*cm" height="10*cm" thickness="4*mm" />
+    </Shape>
+    <Phase type="crystal">
+      <ChemicalFormula>Al</ChemicalFormula>
+      <xyzfile>Al.xyz</xyzfile>
+    </Phase>
+  </PowderSample>
+  
+  <LocalGeometer registry-coordinate-system="InstrumentScientist">
+    <Register name="Al" position="(0,0,0)" orientation="(0,0,28)"/>
+  </LocalGeometer>
+
+  <Environment temperature="300*K"/>
+
+</SampleAssembly>
