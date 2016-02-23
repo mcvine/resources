@@ -1,2 +1,2 @@
-# resources
+# MCViNE resources
 data, examples etc
