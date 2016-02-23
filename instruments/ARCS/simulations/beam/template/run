@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+arcs_beam  --E=80 --ncount=1e9 --fermi_nu=480

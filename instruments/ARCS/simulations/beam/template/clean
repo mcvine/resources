@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+rm -f arcs_moderator2sample.pml*
+rm -f *.dat log.*
+rm -f run-m2s.sh
+rm -rf *out*
