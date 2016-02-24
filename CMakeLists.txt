@@ -42,10 +42,12 @@ set (PKG_NAME "${PROJECT_NAME}")
 install(
   DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/instruments
   DESTINATION share/mcvine/resources
+  USE_SOURCE_PERMISSIONS
   )
 install(
   DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/samples
   DESTINATION share/mcvine/resources
+  USE_SOURCE_PERMISSIONS
   )
 
 # packaging
