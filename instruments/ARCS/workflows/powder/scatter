@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+rm -rf out && ./sss --ncount=1e5 --multiple-scattering=on --mpirun.nodes=2 --buffer_size=10000
+
+#--journal.debug.phonon_incoherent_inelastic_kernel
