@@ -14,7 +14,11 @@ restore-template: clean
 	rm -rf sampleassembly
 	rm -rf *.nxs *.h5
 
-# # IQE comes from iqe histogram file
+
+plot-iqe: IQE
+	plothist iqe.h5
+
+# IQE comes from iqe histogram file
 IQE: iqe.h5
 
 # iqe histogram comes from reduction of simulated event mode nexus file
@@ -34,7 +38,7 @@ arcs-sim.nxs: out/scattered-neutrons
 out/scattered-neutrons: beam sampleassembly sampleassembly/*
 	./scatter </dev/null >log.scatter 2>&1
 
-
+# Required inputs
 beam:
 	@echo "** Missing incident beam"
 	@echo "** Please create a symbolic link to the incident beam"
