@@ -16,7 +16,7 @@ restore-template: clean
 
 
 plot-iqe: IQE
-	plothist iqe.h5
+	plothist --min=0 iqe.h5
 
 # IQE comes from iqe histogram file
 IQE: iqe.h5
