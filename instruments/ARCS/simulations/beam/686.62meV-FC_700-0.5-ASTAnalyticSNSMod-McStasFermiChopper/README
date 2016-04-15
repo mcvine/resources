@@ -1,0 +1,75 @@
+Summary
+-------
+
+This was a simulation of the beam for an 4He experiment
+using finest (so far) fermi chopper for ARCS: 700-0.5-AST.
+
+This was difficult because the needed accuracy of simulated
+resolution is very high: about ~1% of the total width.
+A simulation with all default values for parameters is not
+enough.
+Various changes were made and details are below.
+
+Modified emission time:
+
+  $ mcvine instruments arcs m2s --fermi_chopper=700-0.5-AST --fermi_nu=600 --T0_nu=180 --E=686.62 --emission_time=3.8 --- -dump-pml=yes -h
+
+See the emission_time option. 3.8 mus was taken from experimental reduction
+summary.
+
+
+Modified two components: Moderator and FermiChopper
+
+Look inside arcs_moderator2sample.pml.
+
+* <facility name="moderator">analytic_mod</facility>
+* <property name="fermichopper">optics/FermiChopper</property>
+
+
+Moderator
+---------
+
+Analytical moderator from Franz
+
+* filename: the absolute path to the data file for Beamline #17 (SEQUOIA and ARCS share a moderator). this has to be updated!!!
+* proton_T: from literature. about 0.7
+* sample_E: 1 means sample uniformly in E range
+* sample_t: 0 means sample using the probability distribution
+
+
+FermiChopper
+------------
+
+McStas standard Fermi Chopper
+
+* Curvature of fc: 1/1.5043
+* by default FermiChopper component is rotating CW looking from above.
+  Same as Fermi_chop2 component. So no need to rotate the fermi chopper
+
+
+Validation
+----------
+
+This simulation was done with Souleymane on a 4He ARCS experiment,
+and the beam simulation here reproduced the experimental
+resolution well
+
+
+Known Problems
+--------------
+
+This version of analytical moderator does not support
+"moderator angling" and it is not included.
+The effect of "moderator angling" on this dataset is small,
+and is compensated by narrowing down the Fermi chopper slit
+width a bit to match the monitors.
+
+
+Files
+-----
+
+* run: script to run simulation
+* arcs_moderator2sample.pml: configuration file for simulation
+* analytic_mod.odb: component file for moderator
+* compute*.py: script to compute various parameters used in arcs_moderator2sample
+* compare*.py: script to compare monitor data when simulation was done

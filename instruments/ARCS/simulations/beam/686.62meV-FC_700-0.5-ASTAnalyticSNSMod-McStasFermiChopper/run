@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Normally we would run this:
+# rm -rf *out*
+# arcs_beam  --E=686.62 --ncount=1e9 --fermi_chopper=700-0.5-AST --T0_nu=180
+
+# To customize, we first run the following command to generate
+# arcs_moderator2sample.pml. but please skip this since this was
+# already done.
+# mcvine instruments arcs m2s --fermi_chopper=700-0.5-AST --fermi_nu=600 --T0_nu=180 --E=686.62 --emission_time=3.8 --- -dump-pml=yes -h
+
+# And then we modify arcs_moderator2sample.pml (the one in this directory
+# was already modified, so no need to further modification),
+# and added some related files (*.odb) and then run the following 
+mcvine instruments arcs mod2sample  --typos=relaxed --ncount=1e8 -buffer_size=1000000 --output-dir=_m2sout --mpirun.nodes=20
+mkdir -p out
+python -c "from mcvine.instruments.ARCS import beam_postprocessing as bpp; bpp.run('_m2sout', 'out', 686.62)"

@@ -1,0 +1,3 @@
+def moderator():
+    from mcstas2.pyre_support import componentfactory
+    return componentfactory('sources', 'SNS_source_analytic')('analytic_mod')
