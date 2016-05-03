@@ -28,11 +28,11 @@ arcs-sim-wEidata.nxs: arcs-sim.nxs
 
 # nexus file comes from collecting scattered neutrons at the detector system
 arcs-sim.nxs: out/scattered-neutrons
-	./create-nxs </dev/null >log.create-nxs 2>&1
+	./create-nxs >log.create-nxs 2>&1
 
 # scattered neutrons comes from simulation of scattering of incident beam by sample assembly
 out/scattered-neutrons: beam sampleassembly sampleassembly/*
-	./scatter </dev/null >log.scatter 2>&1
+	./scatter >log.scatter 2>&1
 
 
 beam:
