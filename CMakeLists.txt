@@ -21,6 +21,7 @@ set(SUMMARY "MCViNE data files")
 set(LICENSE "BSD")
 set(RPM_APP_GROUP "Development/Tools")
 set(GITHUB_URL "https://github.com/mcvine/resources")
+set (HOMEPAGE ${GITHUB_URL})
 
 # package repository at packagecloud
 set (PKGCLOUD_USERNAME "danse")
@@ -34,9 +35,27 @@ set (DOCKER_PKGING_DEPS_RPM "danse.ins")
 set (DOCKER_PKGING_TEST_SRPM "ls /opt/danse/share/mcvine/resources")
 set (DOCKER_PKGING_TEST_RPM ${DOCKER_PKGING_TEST_SRPM})
 set (DOCKER_PKGING_TEST_DEB ${DOCKER_PKGING_TEST_SRPM})
+set (CONDA_PKGING_BUILD_DEPS "")
+set (CONDA_PKGING_RUN_DEPS "danse.ins")
+set (CONDA_IMPORT_TEST "danse.ins")
 
 # variables
 set (PKG_NAME "${PROJECT_NAME}")
+
+# get cmake_utils
+IF(EXISTS "cmake_utils/")
+  execute_process(
+    COMMAND git pull
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/cmake_utils
+    )
+ELSE(EXISTS "cmake_utils/")
+  execute_process(
+    COMMAND git clone https://github.com/danse-inelastic/cmake_utils
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+    )
+ENDIF(EXISTS "cmake_utils/")
+set(CMAKE_MODULE_PATH ${PROJECT_BINARY_DIR}/cmake_utils)
+
 
 # subdirs
 install(
@@ -109,13 +128,8 @@ add_custom_target(
   DEPENDS ${SRC_RPM}
   )
 
-# docker folder for build and test packaging artifacts
-execute_process(
-  COMMAND rm -rf docker
-  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-  )
-execute_process(
-  COMMAND git clone https://github.com/danse-inelastic/packaging-use-docker docker
-  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-  )
-add_subdirectory(docker)
+# folders for build and test packaging artifacts
+# deb/rpm
+include(docker)
+# conda
+include(conda)
