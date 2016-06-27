@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE scatterer>
+
+<!-- weights: absorption, scattering, transmission -->
+<homogeneous_scatterer 
+  mcweights="0, 1, 0.1"
+  max_multiplescattering_loops="3"
+  >
+  
+  <KernelContainer average="yes">
+    
+    <E_Q_Kernel 
+	E_Q="0" 
+	S_Q="1"
+	Qmin="0./angstrom"
+	Qmax="16./angstrom"
+	/>
+    
+    <E_vQ_Kernel 
+	E_Q="pi:=3.1415926535897932; twopi:=2*pi; a:=2; b:=2.5; c:=3; 
+    h:=a*Qx/twopi; k:=b*Qy/twopi; l:=c*Qz/twopi; 
+    cospih2:=cos(h*pi)^2; cospil2:=cos(l*pi)^2; cospik2:=cos(k*pi)^2; 
+    (80.^2*(1-cospih2)) ^ (0.5)"
+	S_Q="1"
+	Emax="80*meV"
+	/>
+    
+  </KernelContainer>
+  
+</homogeneous_scatterer>
+
