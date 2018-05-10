@@ -18,13 +18,8 @@ restore-template: clean
 IQE: iqe.h5
 
 # iqe histogram comes from reduction of simulated event mode nexus file
-iqe.h5: arcs-sim-wEidata.nxs
+iqe.h5: arcs-sim.nxs
 	./reduce2iqe >log.reduce 2>&1
-
-# Ei data need to be added to the simulated nexus file
-arcs-sim-wEidata.nxs: arcs-sim.nxs
-	cp arcs-sim.nxs arcs-sim-wEidata.nxs &&\
-	mcvine instruments arcs nxs populate_metadata --type=Ei --nxs=arcs-sim-wEidata.nxs --beam_outdir=beam/out
 
 # nexus file comes from collecting scattered neutrons at the detector system
 arcs-sim.nxs: out/scattered-neutrons
