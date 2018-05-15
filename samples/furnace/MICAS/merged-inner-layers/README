@@ -1,0 +1,10 @@
+plates at sample position:
+ 0.002inch X 2 = 0.004inch or 0.1mm
+
+outmost cylinder:
+ 0.002inch
+
+heater and shield:
+ 0.05mm*10 = 0.5mm -> (4-1.56)*inch
+ packing_factor=0.5/(4-1.56)/25.4=0.008
+

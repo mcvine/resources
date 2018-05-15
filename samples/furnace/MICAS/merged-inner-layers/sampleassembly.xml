@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE SampleAssembly>
+
+<SampleAssembly 
+   name="withmicasfurnace" 
+   max_multiplescattering_loops_among_scatterers="5"
+   max_multiplescattering_loops_interactM_path1="1"
+   min_neutron_probability="1"
+   >
+
+<!-- holder -->
+  <PowderSample name="holder" type="sample">
+    <Shape>
+      <block width="2.9*cm" height="4.1*cm" thickness="0.1016*mm" />
+    </Shape>
+    <Phase type="crystal">
+      <ChemicalFormula>Nb</ChemicalFormula>
+      <xyzfile>Nb.xyz</xyzfile>
+    </Phase>
+  </PowderSample>
+
+<!-- frame left -->
+  <PowderSample name="frame-left" type="sample">
+    <Shape>
+      <block width="1.0*cm" height="4.1*cm" thickness="3.46*mm" />
+    </Shape>
+    <Phase type="crystal">
+      <ChemicalFormula>B1N1</ChemicalFormula>
+      <xyzfile>B1N1.xyz</xyzfile>
+    </Phase>
+  </PowderSample>
+
+<!-- frame right -->
+  <PowderSample name="frame-right" type="sample">
+    <Shape>
+      <block width="1.0*cm" height="4.1*cm" thickness="3.46*mm" />
+    </Shape>
+    <Phase type="crystal">
+      <ChemicalFormula>B1N1</ChemicalFormula>
+      <xyzfile>B1N1.xyz</xyzfile>
+    </Phase>
+  </PowderSample>
+
+<!-- outer most -->
+  <PowderSample name="can" type="sample">
+    <Shape>
+      <hollowCylinder in_radius="5.77*inch" out_radius="5.77*inch+0.1*mm" height="15*inch"/>
+    </Shape>
+    <Phase type="crystal">
+      <ChemicalFormula>Nb</ChemicalFormula>
+      <xyzfile>Nb.xyz</xyzfile>
+    </Phase>
+  </PowderSample>
+  
+<!-- Nb heating elements etc. 2+8 -->
+  <PowderSample name="heater-shield" type="sample">
+    <Shape>
+      <hollowCylinder in_radius="1.56*inch" out_radius="4*inch" height="15*inch"/>
+    </Shape>
+    <Phase type="crystal">
+      <ChemicalFormula>Nb</ChemicalFormula>
+      <xyzfile>Nb.xyz</xyzfile>
+    </Phase>
+  </PowderSample>
+  
+  <LocalGeometer registry-coordinate-system="InstrumentScientist">
+    <Register name="holder" position="(0.0015825,0.0015825,0)" orientation="(0,0,45)"/>
+    <Register name="can" position="(0,0,0)" orientation="(0,0,0)"/>
+    <Register name="heater-shield" position="(0,0,0)" orientation="(0,0,0)"/>
+    <!--frame-left position=(-d sin theta, d cos theta, 0) orientation=(0,0,theta) where d=0.02282m -->
+    <Register name="frame-left" position="(-0.01614,0.01614,0)" orientation="(0,0,45)"/>
+    <!--frame-right position=(d sin theta, -d cos theta, 0) orientation=(0,0,theta) -->
+    <Register name="frame-right" position="(0.01614,-0.01614,0)" orientation="(0,0,45)"/>
+  </LocalGeometer>
+
+  <Environment temperature="300*K"/>
+
+</SampleAssembly>

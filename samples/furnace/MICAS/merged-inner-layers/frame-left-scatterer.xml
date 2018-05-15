@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE scatterer>
+
+<!-- weights: absorption, scattering, transmission -->
+<homogeneous_scatterer 
+  mcweights="0, 0.1, 1"
+  max_multiplescattering_loops="1"
+  >
+  
+  <E_Q_Kernel 
+      E_Q="0" 
+      S_Q="1"
+      Qmin="0./angstrom"
+      Qmax="10./angstrom"
+      absorption_coefficient="6494/meter"
+      scattering_coefficient="0/meter"
+      />
+  
+</homogeneous_scatterer>
