@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!--
+! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!
+!                                     lj7
+!
+! {LicenseText}
+!
+! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+
+<!DOCTYPE geometry>
+
+<geometry>
+
+    <union>
+        <block thickness="0.5*mm" width="6*cm" height="10*cm" />
+        <difference>
+            <cylinder height="15*inch" radius="7.75*inch+0.25*mm"/>
+            <cylinder height="16.5*inch" radius="7.75*inch"/>
+        </difference>
+        <difference>
+            <cylinder height="15*inch" radius="3.5*cm+0.25*mm"/>
+            <cylinder height="16.5*inch" radius="3.5*cm"/>
+        </difference>
+        <difference>
+            <cylinder height="15*inch" radius="3.55*cm+0.25*mm"/>
+            <cylinder height="16.5*inch" radius="3.55*cm"/>
+        </difference>
+        <difference>
+            <cylinder height="15*inch" radius="6.0*cm+0.25*mm"/>
+            <cylinder height="16.5*inch" radius="6.0*cm"/>
+        </difference>
+        <difference>
+            <cylinder height="15*inch" radius="6.5*cm+0.25*mm"/>
+            <cylinder height="16.5*inch" radius="6.5*cm"/>
+        </difference>
+        <difference>
+            <cylinder height="15*inch" radius="7.0*cm+0.25*mm"/>
+            <cylinder height="16.5*inch" radius="7.0*cm"/>
+        </difference>
+        <difference>
+            <cylinder height="15*inch" radius="7.5*cm+0.25*mm"/>
+            <cylinder height="16.5*inch" radius="7.5*cm"/>
+        </difference>
+        <difference>
+            <cylinder height="15*inch" radius="8.0*cm+0.25*mm"/>
+            <cylinder height="16.5*inch" radius="8.0*cm"/>
+        </difference>
+        <difference>
+            <cylinder height="15*inch" radius="8.5*cm+0.25*mm"/>
+            <cylinder height="16.5*inch" radius="8.5*cm"/>
+        </difference>
+        <difference>
+            <cylinder height="15*inch" radius="9.0*cm+0.25*mm"/>
+            <cylinder height="16.5*inch" radius="9.0*cm"/>
+        </difference>
+        <difference>
+            <cylinder height="15*inch" radius="9.5*cm+0.25*mm"/>
+            <cylinder height="16.5*inch" radius="9.5*cm"/>
+        </difference>
+    </union>
+
+</geometry>
+
+<!-- version-->
+<!-- $Id$-->
+
+<!-- Generated automatically by Renderer on Tue May 15 14:46:40 2018-->
+
+<!-- End of file -->
